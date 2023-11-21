@@ -21,37 +21,41 @@ int main()
 	}
 
 	//Task 2
-	cout << "Task II" << endl;
-	int a = 0;
-	int b = 1;
-	int c = 0;
-	int n = 0;
-	cout << "Enter number: ";
-	cin >> n;
-	while (a < n)
-	{
-		a = b;
-		b = c;
-		c = a + b;
-		cout << c << " ";
-		a++;
-
+	
+	int term1 = 0;
+	int term2 = 1;
+	int num = 0;
+	int nextTerm = 0;
+	cout << "Number of terms: ";
+	cin >> num;
+	if (num <= 2) {
+		cout << "Number of terms must be >=3" << endl;
+		return 1;
+		
+	}
+	cout << term1 << ", " << term2 << ", ";
+	for (int i = 3; i <= num; i++) {
+		nextTerm = term1 + term2;
+		cout << nextTerm;
+		if (i != num) cout << ", ";
+		term1 = term2;
+		term2 = nextTerm;
 	}
 	cout << endl;
 
 	//Task 3
 	cout << "Task III" << endl;
-	unsigned int sum = 1;
+	unsigned int sumi = 1;
 	unsigned int i = 1;
 	int p = 0;
 	std::cout << "Enter factorial number: ";
 	std::cin >> p;
 	while (i <= p)
 	{
-		sum = sum * i;
+		sumi = sumi * i;
 		i++;
 	}
-	std::cout << sum;
+	std::cout << sumi;
 	cout << endl;
 	//Task 4
 	cout << "Task IV (a)" << endl;
@@ -82,7 +86,7 @@ int main()
 		std::cout << std::endl;
 	}
 
-	cout << "Task IV (c,d)" << endl;
+	cout << "Task IV (c)" << endl;
 	int w2 = 0;
 	int h2 = 0;
 	cout << "Enter height: ";
@@ -96,7 +100,23 @@ int main()
 			std::cout << '*';
 		}
 		std::cout << std::endl;
+
 	}
+	cout << "Task IV (d)" << endl;
+	int rows; // Number of rows
+	cout << "Enter number of rows: ";
+	cin >> rows;
+	for (int i = 0; i < rows; ++i) {
+		for (int j = 0; j < i; ++j) {
+			std::cout << " ";
+		}
+		for (int i = 0; i < rows; ++i) {
+			std::cout << "*";
+		}
+		std::cout << std::endl;
+	}
+
+
 	cout << "Task IV (e)" << endl;
 	int h4 = 0;
 	cout << "Enter height: ";
@@ -131,7 +151,6 @@ while (true) {
 		int digit = symbol - '0';
 		suma += digit;
 		cout << "Current sum of numbers: " << suma << endl;
-		break;
 	}
 	else {
 		cout << "This symbol is invalid." << endl;
