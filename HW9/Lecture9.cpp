@@ -4,41 +4,40 @@
 #include <algorithm>
 #include <cstring>
 #include "Lecture9.h"
-
+#include <limits>
 
 
 
 int main() {
-    /*std::cout <<"Task 1"<<std::endl;
-    const int size = 10;
+    std::cout <<"Task 1"<<std::endl;
+    const int size = 2;
     int arr[size];
 
     std::cout << "Enter 10 numbers for the array: ";
     for (int i = 0; i < size; ++i) {
         std::cin >> arr[i];
     }
-
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     translateArray(arr, size);
 
     std::cout << "Modified array: ";
     for (int i = 0; i < size; ++i) {
         std::cout << arr[i] << " ";
     }
-    std::cout << std::endl;*/
-
-    std::cout << "Task 2" << std::endl;
-    const int length = 255;
-    char te[length];
-
-    std::cout << "Enter something: ";
-    std::cin.getline(te, length);
-    toUppercase(te, length);
-    std::cout << "Uppercase result: " << te << std::endl;
-    return 0;
     std::cout << std::endl;
 
+    std::cout << "Task 2" << std::endl;
+    char te[255];
 
-   /* std::cout <<"Task 3"<<std::endl;
+    std::cout << "Enter something: ";
+    std::cin.getline(te,255);
+    toUppercase(te,255);
+    std::cout << "Uppercase result: " << te << std::endl;
+
+    std::cout << std::endl;
+
+   std::cout <<"Task 3"<<std::endl;
 
     std::string text;
     std::cout << "Enter some Text: " << std::endl;
@@ -68,12 +67,12 @@ int main() {
 
     std::cout << "Task 5" << std::endl;
     const int mLength = 100;
-    char str1[maxLength];
-    char str2[maxLength];
+    char str1[mLength];
+    char str2[mLength];
 
-    std::cout << "string 1: ";
+    std::cout <<"string 1: ";
     std::cin.getline(str1, mLength);
-    std::cout << "string 2: ";
+    std::cout <<"string 2: ";
     std::cin.getline(str2, mLength);
 
     if(isEqual(str1, str2)){
@@ -81,7 +80,7 @@ int main() {
     }
     else{
         std::cout << "Not equal" << std::endl;
-    }*/
+    }
 }
 
 
