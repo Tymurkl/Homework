@@ -1,6 +1,5 @@
 #pragma once
-
-}
+#include <iostream>
 int Fact2(int b) {
     if (b == 0)
     {
@@ -14,9 +13,6 @@ int Fact2(int b) {
 
 }
 
-
-
-// c. від найбільшого до найменшого за допомогою рекурсії
 void printNaturalNumbersDescendingRecursively(int count) {
     if (count == 0) {
         return;
@@ -25,12 +21,9 @@ void printNaturalNumbersDescendingRecursively(int count) {
     printNaturalNumbersDescendingRecursively(count - 1);
 }
 
-// d. від найменшого до найбільшого за допомогою рекурсії
-void printNaturalNumbersAscendingRecursively(int count, int current = 1) {
-    if (current > count) {
-        return;
+void printNaturalNumbersAscendingRecursively(int count) {
+    if (count > 0) {
+        printNaturalNumbersAscendingRecursively(count - 1);
+        std::cout << (count) << " ";
     }
-    std::cout << current << " ";
-    printNaturalNumbersAscendingRecursively(count, current + 1);
 }
-
