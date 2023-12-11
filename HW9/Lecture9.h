@@ -15,19 +15,18 @@ void toUppercase(char str[], int length){
 
     }
 }
-bool isPalindrome(std:: string str)
-{
-    for(int i = 0; i <= str.length()-1; i++)
-    {
-        if(str[i] != str[str.length()-1-i])
-        {
+bool isPalindrome(std::string str) {
+    int left = 0;
+    int right = str.length() - 1;
+
+    while (left < right) {
+        if (str[left] != str[right]) {
             return false;
         }
-        else
-        {
-            return true;
-        }
+        left++;
+        right--;
     }
+    return true;
 }
 
 void parseStringLetters(const char str[], int& vowelsCount, int& consonantsCount) {
