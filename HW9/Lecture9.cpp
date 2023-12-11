@@ -10,7 +10,7 @@
 
 int main() {
     std::cout <<"Task 1"<<std::endl;
-    const int size = 2;
+    const int size = 10;
     int arr[size];
 
     std::cout << "Enter 10 numbers for the array: ";
@@ -28,11 +28,12 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Task 2" << std::endl;
-    char te[255];
+    const int leng=255;
+    char te[leng];
 
     std::cout << "Enter something: ";
-    std::cin.getline(te,255);
-    toUppercase(te,255);
+    std::cin.getline(te,leng);
+    toUppercase(te,leng);
     std::cout << "Uppercase result: " << te << std::endl;
 
     std::cout << std::endl;
