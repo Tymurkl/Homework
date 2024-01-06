@@ -2,10 +2,11 @@
 #include <string>
 #include <algorithm>
 
+const int MARKS_SIZE = 4;
+
 struct Student {
     std::string name;
-    int marks[4];
-
+    int marks[MARKS_SIZE];
 
     Student(const std::string& n, int m1, int m2, int m3, int m4) {
         name = n;
@@ -15,28 +16,36 @@ struct Student {
         marks[3] = m4;
     }
 
-
     double averageMarks() const {
         int sum = 0;
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < MARKS_SIZE; ++i) {
             sum += marks[i];
         }
-        return static_cast<double>(sum) / 4.0;
+        return static_cast<double>(sum) / MARKS_SIZE;
     }
 };
-
 
 bool compareStudents(const Student& s1, const Student& s2) {
     return s1.averageMarks() > s2.averageMarks();
 }
 
-
 Student* getTopStudent(Student* students, int count) {
     if (count <= 0) {
         return nullptr;
     }
-    std::sort(students, students + count, compareStudents);
-    return &students[0];
+
+    Student* topStudent = &students[0];
+    double highestAverageMarks = students[0].averageMarks();
+
+    for (int i = 1; i < count; ++i) {
+        double currentAverageMarks = students[i].averageMarks();
+        if (currentAverageMarks > highestAverageMarks) {
+            highestAverageMarks = currentAverageMarks;
+            topStudent = &students[i];
+        }
+    }
+
+    return topStudent;
 }
 
 int countStudentsAboveAverage(Student* students, int count, double threshold) {
@@ -49,14 +58,113 @@ int countStudentsAboveAverage(Student* students, int count, double threshold) {
     return aboveThreshold;
 }
 
+
+
 int main() {
-    const int numOfStudents = 5;
+    const int numOfStudents = 100;
     Student students[numOfStudents] = {
             {"Alice", 80, 75, 90, 85},
             {"Bob", 70, 65, 60, 75},
             {"Charlie", 90, 85, 80, 95},
             {"David", 60, 55, 50, 45},
-            {"Eva", 85, 90, 95, 80}
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+            {"Eva", 85, 90, 95, 80},
+
+
     };
 
 
@@ -71,3 +179,4 @@ int main() {
 
     return 0;
 }
+
